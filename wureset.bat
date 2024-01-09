@@ -322,6 +322,9 @@ goto :eof
 	call :print Stopping the Windows Update services.
 	net stop wuauserv
 
+	call :print Disabling the Windows Update services to make sure they don't restart during process
+	sc config wuauserv start= disabled
+
 	call :print Stopping the Windows Update services.
 	net stop appidsvc
 
